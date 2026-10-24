@@ -2,10 +2,12 @@
 
 using namespace std;
 
+const string categories[3] = {"Study", "Entertaintment", "Other"};
+
 struct subscription {
     int id;
     string name;
-    string category[3] = {"Study", "Entertaintment", "Other"};
+    string category;
     bool status;
 };
 
@@ -13,12 +15,12 @@ int main()
 {
     subscription app[3];
     
-    string input;
-    
     app[0].id = 1;
-    app[0].name = input;
+    app[0].name = "Netflix";
+    app[0].category = categories[0];
     
-    cout << app[0].name;
+    cout << app[0].name << endl;
+    cout << app[0].category;
 
     return 0;
 }
