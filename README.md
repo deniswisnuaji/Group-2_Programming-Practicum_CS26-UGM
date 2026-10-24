@@ -9,5 +9,5 @@ Student Subscription Manager @ C++
 * Radya Aieshya Rinaldi (Documentation)
 
 ### Note
-- Nanti kita pakai github buat upload & ngecollab code-code kita ya guys.. kita sekalian belajar gimana developing dan managing project seperti industri.
+- Nanti kita pakai github buat upload & ngecollab code-code kita ya guys.. kita sekalian belajar gimana develop dan manage project seperti industri.
 - Keep your spirit up gang!
