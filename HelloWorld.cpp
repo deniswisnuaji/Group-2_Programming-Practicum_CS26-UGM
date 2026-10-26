@@ -8,6 +8,7 @@ int main()
     cout << "Trus ini pas udah diedit" << endl;
     cout << "ini punya isam" << endl;
     cout << "halo" << endl;
+    cout << "tes" << endl;
     
     return 0;
 }
