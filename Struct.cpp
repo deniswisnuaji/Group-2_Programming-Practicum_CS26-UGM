@@ -1,19 +1,22 @@
+
 #include <iostream>
 
 using namespace std;
 
-const string categories[6] = {"Study", "Cloud", "Entertaintment", "AI Tool", "Game", "Other"};
+const string categories[6] = {"Study", "Entertaintment", "Other", "Cloud", "Game", "AI Tool"};
 
 struct subscription {
     int id;
     string name;
     string category;
+    float mcost;
+    int usage;
     bool isActive;
 };
 
 int main()
 {
-int n;
+    int n;
     cout << "Enter the number of subscriptions: ";
     cin >> n;
     cin.ignore(); 
@@ -26,12 +29,20 @@ int n;
         cout << "Enter the name of subscription " << i + 1 << ": ";
         getline(cin, app[i].name);
         
+        cout << "Enter the monthly cost for subscription " << i + 1 << ": ";
+        cin >> app[i].mcost;
+        cin.ignore();
+        
+        cout << "Enter the usage frequency for subscription " << i + 1 << ": ";
+        cin >> app[i].usage;
+        cin.ignore();
+        
         cout << "Select a category for subscription " << i + 1 << ":\n";
         for (int j = 0; j < 6; j++) {
             cout << j + 1 << ". " << categories[j] << endl;
         }
         int categoryChoice;
-        cout << "Category number: ";
+        cout<<"Category number: ";
         cin >> categoryChoice;
         cin.ignore();
         if (categoryChoice >= 1 && categoryChoice <= 6) {
@@ -45,5 +56,6 @@ int n;
         cin >> app[i].isActive;
         cin.ignore();
     }
+    
     return 0;
 }
