@@ -31,7 +31,7 @@ int n;
             cout << j + 1 << ". " << categories[j] << endl;
         }
         int categoryChoice;
-        cout << "Enter a number: ";
+        cout << "Category number: ";
         cin >> categoryChoice;
         cin.ignore();
         if (categoryChoice >= 1 && categoryChoice <= 6) {
