@@ -29,14 +29,6 @@ int main()
         cout << "Enter the name of subscription " << i + 1 << ": ";
         getline(cin, app[i].name);
         
-        cout << "Enter the monthly cost for subscription " << i + 1 << ": ";
-        cin >> app[i].mcost;
-        cin.ignore();
-        
-        cout << "Enter the usage frequency for subscription " << i + 1 << ": ";
-        cin >> app[i].usage;
-        cin.ignore();
-        
         cout << "Select a category for subscription " << i + 1 << ":\n";
         for (int j = 0; j < 6; j++) {
             cout << j + 1 << ". " << categories[j] << endl;
@@ -51,6 +43,14 @@ int main()
             cout << "Invalid category choice. Defaulting to 'Other'.\n";
             app[i].category = "Other";
         }
+
+        cout << "Enter the monthly cost for subscription " << i + 1 << ": ";
+        cin >> app[i].mcost;
+        cin.ignore();
+        
+        cout << "Enter the usage frequency for subscription " << i + 1 << ": ";
+        cin >> app[i].usage;
+        cin.ignore();
         
         cout << "Is the subscription active? (1 for Yes, 0 for No): ";
         cin >> app[i].isActive;
