@@ -13,7 +13,13 @@ struct subscription {
 
 int main()
 {
-subscription app[n];
+int n;
+    cout << "Enter the number of subscriptions: ";
+    cin >> n;
+    cin.ignore(); 
+
+    subscription app[n];
+
     for (int i = 0; i < n; i++) {
         app[i].id = i + 1;
         
