@@ -8,7 +8,7 @@ struct subscription {
     int id;
     string name;
     string category;
-    bool status;
+    bool isActive;
 };
 
 int main()
