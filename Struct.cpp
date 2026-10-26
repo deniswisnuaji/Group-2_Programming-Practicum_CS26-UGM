@@ -13,18 +13,30 @@ struct subscription {
 
 int main()
 {
-    int n;
-    cout<<"Input number of subscription: ";
-    cin>>n;
-    subscription app[n];
-    for (int i=0; i<n; i++){
+subscription app[n];
+    for (int i = 0; i < n; i++) {
+        app[i].id = i + 1;
         
-    app[0].id = 1;
-    app[0].name = "Netflix";
-    app[0].category = categories[0];
-    
-    cout << app[0].name << endl;
-    cout << app[0].category;
+        cout << "Enter the name of subscription " << i + 1 << ": ";
+        getline(cin, app[i].name);
+        
+        cout << "Select a category for subscription " << i + 1 << ":\n";
+        for (int j = 0; j < 6; j++) {
+            cout << j + 1 << ". " << categories[j] << endl;
+        }
+        int categoryChoice;
+        cin >> categoryChoice;
+        cin.ignore();
+        if (categoryChoice >= 1 && categoryChoice <= 6) {
+            app[i].category = categories[categoryChoice - 1];
+        } else {
+            cout << "Invalid category choice. Defaulting to 'Other'.\n";
+            app[i].category = "Other";
+        }
+        
+        cout << "Is the subscription active? (1 for Yes, 0 for No): ";
+        cin >> app[i].isActive;
+        cin.ignore();
     }
     return 0;
 }
