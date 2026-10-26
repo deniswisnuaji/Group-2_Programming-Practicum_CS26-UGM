@@ -13,9 +13,12 @@ struct subscription {
 
 int main()
 {
-    for (int i=0; i<n; i++){
+    int n;
+    cout<<"Input number of subscription: ";
+    cin>>n;
     subscription app[n];
-    
+    for (int i=0; i<n; i++){
+        
     app[0].id = 1;
     app[0].name = "Netflix";
     app[0].category = categories[0];
