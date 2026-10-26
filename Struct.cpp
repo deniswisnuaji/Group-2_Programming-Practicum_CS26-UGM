@@ -3,7 +3,7 @@
 
 using namespace std;
 
-const string categories[6] = {"Study", "Entertaintment", "Other", "Cloud", "Game", "AI Tool"};
+const string categories[6] = {"Study", "Cloud", "Entertainment", "AI Tool", "Game", "Other"};
 
 struct subscription {
     int id;
@@ -48,7 +48,7 @@ int main()
         cin >> app[i].mcost;
         cin.ignore();
         
-        cout << "Enter the usage frequency for subscription " << i + 1 << ": ";
+        cout << "Enter the usage frequency (per week) for subscription " << i + 1 << ": ";
         cin >> app[i].usage;
         cin.ignore();
         
