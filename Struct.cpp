@@ -13,7 +13,8 @@ struct subscription {
 
 int main()
 {
-    subscription app[3];
+    for (int i=0; i<n; i++){
+    subscription app[n];
     
     app[0].id = 1;
     app[0].name = "Netflix";
@@ -21,6 +22,6 @@ int main()
     
     cout << app[0].name << endl;
     cout << app[0].category;
-
+    }
     return 0;
 }
