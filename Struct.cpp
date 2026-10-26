@@ -2,7 +2,7 @@
 
 using namespace std;
 
-const string categories[3] = {"Study", "Cloud", "Entertaintment", "AI Tool", "Game", "Other"};
+const string categories[6] = {"Study", "Cloud", "Entertaintment", "AI Tool", "Game", "Other"};
 
 struct subscription {
     int id;
