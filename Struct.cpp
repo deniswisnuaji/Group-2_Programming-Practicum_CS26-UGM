@@ -5,7 +5,7 @@ using namespace std;
 
 const string categories[6] = {"Study", "Cloud", "Entertainment", "AI Tool", "Game", "Other"};
 
-const int MAX_SUBSCRIPTIONS = 100;
+const int MAX_SUBSCRIPTIONS = 255;
 
 struct subscription {
     int id;
