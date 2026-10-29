@@ -56,12 +56,12 @@ int main()
             return 0; 
         }
         
-        cout << "Enter the usage frequency per week (1 - 7) for subscription: ";
+        cout << "Enter the usage frequency per week (0 - 7) for subscription: ";
         cin >> app[i].usage;
         cin.ignore();
 
         if (app[i].usage < 0 || app[i].usage > 7) {
-            cout << "Invalid usage frequency. Usage frequency must be between 1 and 7!" << endl;
+            cout << "Invalid usage frequency. Usage frequency must be between 0 and 7!" << endl;
             return 0;
         }
         
