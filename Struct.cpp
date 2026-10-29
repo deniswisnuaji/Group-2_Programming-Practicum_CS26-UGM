@@ -26,10 +26,10 @@ int main()
         app[i].id = i + 1;
 
         cout << "\n=== Subscription no. " << i + 1 << " ===" << endl;
-        cout << "Enter Name: " << endl;
+        cout << "Enter Name: ";
         getline(cin, app[i].name);
         
-        cout << "Select a category ";
+        cout << "Select a category " << endl;
         for (int j = 0; j < 6; j++) {
             cout << j + 1 << ". " << categories[j] << endl;
         }
