@@ -52,7 +52,7 @@ int main()
 
        
         if (app[i].monthlyCost <= 0.0) {
-            cout << "Monthly Cost Cannot be negative!" << endl;
+            cout << "Monthly Cost Cannot be zero or negative!" << endl;
             return 0; 
         }
         
