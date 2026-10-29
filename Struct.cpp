@@ -60,7 +60,7 @@ int main()
         cin >> app[i].usage;
         cin.ignore();
 
-        if (app[i].usage < 1 || app[i].usage > 7) {
+        if (app[i].usage < 0 || app[i].usage > 7) {
             cout << "Invalid usage frequency. Usage frequency must be between 1 and 7!" << endl;
             return 0;
         }
