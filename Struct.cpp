@@ -88,7 +88,7 @@ void classifyCost(subscription out) {
 }
 
 void display(subscription out) {
-    cout << "App ID        : " << out.id << endl;
+    cout << "\nApp ID        : " << out.id << endl;
     cout << "App Name      : " << out.name << endl;
     cout << "Category      : " << out.category << endl;
     cout << "Monthly cost  : " << out.monthlyCost << endl;
@@ -147,6 +147,11 @@ void addSubscription() {
 
         app[n].id = "App.0" + to_string(categoryChoice)
                     + "_0" + to_string(n + 1);
+
+        if (n > 8){
+            app[n].id = "App.0" + to_string(categoryChoice)
+                    + "_" + to_string(n + 1);
+        }
 
         cout << "Enter monthly cost: ";
         cin >> app[n].monthlyCost;
@@ -251,7 +256,6 @@ void linearSearch() {
     }
 }
 
-// BUBBLE SORT
 void bubbleSort() {
 
     if (n == 0) {
