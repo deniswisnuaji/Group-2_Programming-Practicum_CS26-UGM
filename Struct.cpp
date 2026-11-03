@@ -1,4 +1,3 @@
-
 #include <iostream>
 #include <string>
 using namespace std;
@@ -73,6 +72,21 @@ void dummyData() {
     }
 }
 
+void classifyCost(subscription out) {
+
+    cout << "Cost Classification: ";
+
+    if (out.monthlyCost <= 30000) {
+        cout << "Low" << endl;
+    }
+    else if (out.monthlyCost <= 70000) {
+        cout << "Medium" << endl;
+    }
+    else {
+        cout << "High" << endl;
+    }
+}
+
 void display(subscription out) {
     cout << "App ID        : " << out.id << endl;
     cout << "App Name      : " << out.name << endl;
@@ -86,6 +100,8 @@ void display(subscription out) {
     } else {
         cout << "Inactive" << endl;
     }
+
+    classifyCost(out);
 }
 
 void addSubscription() {
@@ -131,11 +147,6 @@ void addSubscription() {
 
         app[n].id = "App.0" + to_string(categoryChoice)
                     + "_0" + to_string(n + 1);
-                    
-        if (n>8){
-             app[n].id = "App.0" + to_string(categoryChoice)
-                    + "_" + to_string(n + 1);
-        }
 
         cout << "Enter monthly cost: ";
         cin >> app[n].monthlyCost;
@@ -159,9 +170,11 @@ void addSubscription() {
 
         if (activeChoice == 1) {
             app[n].isActive = true;
-        } else if (activeChoice == 0) {
+        }
+        else if (activeChoice == 0) {
             app[n].isActive = false;
-        } else {
+        }
+        else {
             cout << "Please enter only 1 or 0!\n";
             return;
         }
@@ -238,6 +251,7 @@ void linearSearch() {
     }
 }
 
+// BUBBLE SORT
 void bubbleSort() {
 
     if (n == 0) {
