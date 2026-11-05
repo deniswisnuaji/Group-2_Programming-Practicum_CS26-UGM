@@ -170,7 +170,7 @@ void addSubscription() {
 
         if (n > 8){
             app[n].id = "App.0" + to_string(categoryChoice)
-                    + "_" + to_string(n + 1);
+                        + "_" + to_string(n + 1);
         }
 
         cout << "Enter monthly cost: ";
@@ -207,8 +207,8 @@ void addSubscription() {
         n++;
 
         cout << "Subscription added successfully!\n";
-
     }
+
     repeat();
 }
 
@@ -278,7 +278,7 @@ void linearSearch() {
     if (found == false) {
         cout << "Subscription not found!\n";
     }
-    
+
     repeat();
 }
 
@@ -380,15 +380,14 @@ int countActive(int i) {
 }
 
 double averageCost() {
-    return totalActiveCost(0) / countActive(0);
 
-    // int activeCount = countActive(0);
+    int activeCount = countActive(0);
 
-    // if (activeCount == 0) {
-    //     return 0;
-    // }
+    if (activeCount == 0) {
+        return 0;
+    }
 
-    // return totalActiveCost(0) / activeCount;
+    return totalActiveCost(0) / activeCount;
 }
 
 int minSub(int i) {
@@ -427,18 +426,57 @@ void displayGeneralData() {
         return;
     }
 
-    cout << "Total Monthly Subscription         : " << totalCost(0) << endl;
-    cout << "Total Monthly Subscription (Active): " << totalActiveCost(0) << endl;
-    cout << "Avg Monthly Subscription (Active)  : " << averageCost() << endl;
-    cout << "Least Expensive Subscription       : " << app[minSub(0)].name << ", Price: " << app[minSub(0)].monthlyCost << endl;
-    cout << "Most  Expensive Subscription       : " << app[maxSub(0)].name << ", Price: " << app[maxSub(0)].monthlyCost << endl;
-    cout << "Annual Cost Subscription (Active)  : " << annualCost() << endl;
+    cout << "Total Monthly Subscription         : "
+         << totalCost(0) << endl;
+
+    cout << "Total Monthly Subscription (Active): "
+         << totalActiveCost(0) << endl;
+
+    cout << "Avg Monthly Subscription (Active)  : "
+         << averageCost() << endl;
+
+    cout << "Least Expensive Subscription       : "
+         << app[minSub(0)].name
+         << ", Price: "
+         << app[minSub(0)].monthlyCost << endl;
+
+    cout << "Most  Expensive Subscription       : "
+         << app[maxSub(0)].name
+         << ", Price: "
+         << app[maxSub(0)].monthlyCost << endl;
+
+    cout << "Annual Cost Subscription (Active)  : "
+         << annualCost() << endl;
 
     repeat();
 }
 
 void lowUsageHighCost() {
-    cout << "isi sini bro" << endl;
+    if (n == 0) {
+        cout << "No subscriptions available.\n";
+        return;
+    }
+
+    double average = averageCost();
+    cout << "\n===== LOW USAGE BUT ABOVE-AVERAGE COST =====";
+    bool found = false;
+    
+    for (int i = 0; i < n; i++) {
+        
+        if (app[i].isActive == true &&
+            app[i].usage <= 3 &&
+            app[i].monthlyCost > average) {
+
+            display(app[i]);
+            found = true;
+        }
+    }
+
+    if (found == false) {
+        cout << "No active subscriptions match the criteria.\n";
+    }
+
+    repeat();
 }
 
 int main() {
