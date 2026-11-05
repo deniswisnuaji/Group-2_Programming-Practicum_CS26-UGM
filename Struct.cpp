@@ -32,12 +32,32 @@ void menu() {
     cout << "= 2. Add Subscription(s)           ===" << endl;
     cout << "= 3. Search Subscription(s)        ===" << endl;
     cout << "= 4. Sort Subscription(s)          ===" << endl;
+    cout << "= 5. Display General Data          ===" << endl;
+    cout << "= 6. Low Usage, Above Average Sub  ===" << endl;
     cout << "= 0. Exit                          ===" << endl;
     cout << "======================================" << endl;
     cout << "Input choice: ";
     cin >> choice;
 
     menuChoice = choice;
+}
+
+void close() {
+    cout << "Bye-bye!" << endl;
+    loop = false;
+}
+
+void repeat() {
+    char again = 'y';
+
+    cout << "\nDo you want to return to main menu? (y/n): ";
+    cin >> again;
+
+    if (again == 'y' || again == 'Y') {
+        return;
+    } else {
+        close();
+    }
 }
 
 void dummyData() {
@@ -187,7 +207,9 @@ void addSubscription() {
         n++;
 
         cout << "Subscription added successfully!\n";
+
     }
+    repeat();
 }
 
 void displaySubscription() {
@@ -200,9 +222,11 @@ void displaySubscription() {
     }
 
     for (int i = 0; i < n; i++) {
-        cout << "\n=== Subscription No. " << i + 1 << " ===\n";
+        cout << "\n=== Subscription No. " << i + 1 << " ===";
         display(app[i]);
     }
+
+    repeat();
 }
 
 void linearSearch() {
@@ -254,6 +278,8 @@ void linearSearch() {
     if (found == false) {
         cout << "Subscription not found!\n";
     }
+    
+    repeat();
 }
 
 void bubbleSort() {
@@ -317,9 +343,102 @@ void bubbleSort() {
     displaySubscription();
 }
 
-void close() {
-    cout << "Bye-bye!" << endl;
-    loop = false;
+double totalCost(int i) {
+    if (i == n) {
+        return 0;
+    }
+
+    return app[i].monthlyCost + totalCost(i + 1);
+}
+
+double totalActiveCost(int i) {
+    if (i == n) {
+        return 0;
+    }
+
+    if(app[i].isActive == true) {
+        return app[i].monthlyCost + totalActiveCost(i + 1);
+    } else {
+        return totalActiveCost(i + 1);
+    }
+}
+
+double annualCost() {
+    return totalActiveCost(0) * 12;
+}
+
+int countActive(int i) {
+    if (i == n) {
+        return 0;
+    }
+
+    if (app[i].isActive == true) {
+        return 1 + countActive(i + 1);
+    } else {
+        return countActive(i + 1);
+    }
+}
+
+double averageCost() {
+    return totalActiveCost(0) / countActive(0);
+
+    // int activeCount = countActive(0);
+
+    // if (activeCount == 0) {
+    //     return 0;
+    // }
+
+    // return totalActiveCost(0) / activeCount;
+}
+
+int minSub(int i) {
+    if (i == (n - 1)) {
+        return i;
+    }
+
+    int next = minSub(i + 1);
+
+    if(app[i].monthlyCost < app[next].monthlyCost) {
+        return i;
+    } else {
+        return next;
+    }
+}
+
+int maxSub(int i) {
+    if (i == (n - 1)) {
+        return i;
+    }
+
+    int next = maxSub(i + 1);
+
+    if(app[i].monthlyCost > app[next].monthlyCost) {
+        return i;
+    } else {
+        return next;
+    }
+}
+
+void displayGeneralData() {
+    cout << "\n======= General Data ========" << endl;
+
+    if (n == 0) {
+        cout << "No subscriptions have been added yet.\n";
+        return;
+    }
+
+    cout << "Total Monthly Subscription         : " << totalCost(0) << endl;
+    cout << "Total Monthly Subscription (Active): " << totalActiveCost(0) << endl;
+    cout << "Avg Monthly Subscription (Active)  : " << averageCost() << endl;
+    cout << "Least Expensive Subscription       : " << app[minSub(0)].name << ", Price: " << app[minSub(0)].monthlyCost << endl;
+    cout << "Most  Expensive Subscription       : " << app[maxSub(0)].name << ", Price: " << app[maxSub(0)].monthlyCost << endl;
+    cout << "Annual Cost Subscription (Active)  : " << annualCost() << endl;
+
+    repeat();
+}
+
+void lowUsageHighCost() {
+    cout << "isi sini bro" << endl;
 }
 
 int main() {
@@ -345,7 +464,15 @@ int main() {
                 bubbleSort();
                 break;
 
-            case 99:
+            case 5:
+                displayGeneralData();
+                break;
+
+            case 6:
+                lowUsageHighCost();
+                break;
+
+            case 67:
                 dummyData();
                 break;
 
