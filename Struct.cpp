@@ -481,6 +481,8 @@ void lowUsageHighCost() {
 
 int main() {
 
+    cout << fixed << setprecision(0);
+
     do {
         menu();
 
