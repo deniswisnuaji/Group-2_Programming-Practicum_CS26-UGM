@@ -28,7 +28,7 @@ subscription app[MAX_SUBSCRIPTIONS];
 void menu() {
     int choice;
 
-    cout << "\n=== Student Subscription Manager ===" << endl;
+    cout << "\n==== Student Subscription Manager ====" << endl;
     cout << "= 1. Display Subscription(s)       ===" << endl;
     cout << "= 2. Add Subscription(s)           ===" << endl;
     cout << "= 3. Search Subscription(s)        ===" << endl;
